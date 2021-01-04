@@ -46,7 +46,7 @@ def spliter(filename):
     visits.to_json('visits.json', orient = 'records')
             
 if __name__ == "__main__":
-	if len(sys.argv) != 2:
-		raise ValueError('Please provide file name.')
-	filename = sys.argv[-1]
-	spliter(filename)
+    if len(sys.argv) != 2:
+	raise ValueError('Please provide file name.')
+    filename = sys.argv[-1]
+    spliter(filename)
