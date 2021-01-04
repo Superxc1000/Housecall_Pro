@@ -34,16 +34,16 @@ def spliter(filename):
         hits_main.append(hits)
         visits_main.append(visits)
 
-    hits = pd.DataFrame(hits_main)
-    visits = pd.DataFrame(visits_main)
+    hits_df = pd.DataFrame(hits_main)
+    visits_df = pd.DataFrame(visits_main)
     
-    hits.columns = ['key', 'hit_number', 'hit_type', 'hit_timestamp', 'page_path', 'page_title', 'hostname', 'country']
-    visits.columns = ['key', 'full_visitor_id', 'visit_id', 'visit_number', 'visit_start_time', 'browser', 'country']
+    hits_df.columns = ['key', 'hit_number', 'hit_type', 'hit_timestamp', 'page_path', 'page_title', 'hostname', 'country']
+    visits_df.columns = ['key', 'full_visitor_id', 'visit_id', 'visit_number', 'visit_start_time', 'browser', 'country']
 
-    visits.drop_duplicates(['full_visitor_id', 'visit_id'], inplace = True)
+    visits_df.drop_duplicates(['full_visitor_id', 'visit_id'], inplace = True)
     
-    hits.to_json('hits.json', orient = 'records')
-    visits.to_json('visits.json', orient = 'records')
+    hits_df.to_json('hits.json', orient = 'records')
+    visits_df.to_json('visits.json', orient = 'records')
             
 if __name__ == "__main__":
     if len(sys.argv) != 2:
